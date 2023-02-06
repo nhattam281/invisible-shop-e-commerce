@@ -1,8 +1,9 @@
 import React from 'react';
+import './ShopPage.scss';
 
 function ShopPage() {
     return (
-        <div>
+        <div className='shop'>
             <h1>Shop Page</h1>
         </div>
     );

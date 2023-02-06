@@ -1,11 +1,11 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import DefaultLayout from './layout/DefaultLayout';
-import CartPage from './pages/CartPage';
-import HomePage from './pages/HomePage';
-import LoginPage from './pages/LoginPage';
-import ProductDetailPage from './pages/ProductDetailPage';
-import ShopPage from './pages/ShopPage';
+import CartPage from './pages/Cart/CartPage';
+import HomePage from './pages/Home/HomePage';
+import LoginPage from './pages/Login/LoginPage';
+import ProductDetailPage from './pages/ProductDetail/ProductDetailPage';
+import ShopPage from './pages/Shop/ShopPage';
 
 function App() {
     return (

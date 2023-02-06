@@ -1,8 +1,9 @@
 import React from 'react';
+import './CartPage.scss';
 
 function CartPage() {
     return (
-        <div>
+        <div className='cart'>
             <h1>Cart Page</h1>
         </div>
     );
