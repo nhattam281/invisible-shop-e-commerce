@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import userImage from '../../assets/images/user_318-219673.jpg';
 import './Header.scss';
 
 const menuLinks = [
@@ -8,7 +9,7 @@ const menuLinks = [
         path: '/',
     },
     {
-        title: 'Shop Category',
+        title: 'Shop',
         path: '/shop',
     },
     {
@@ -18,18 +19,47 @@ const menuLinks = [
 ];
 
 function Header() {
+    const cartQuantity = 2;
+    const [userLogin, setUserLogin] = useState(true);
+    const [showSubMenu, setShowSubMenu] = useState(false);
+
     return (
         <div className='header'>
-            <h1>InvisibleShop.</h1>
-            {menuLinks.map((link) => (
-                <NavLink
-                    to={link.path}
-                    key={link.title}
-                    className='header_menu'
-                >
-                    {link.title}
-                </NavLink>
-            ))}
+            <div className='container'>
+                <div className='header_logo'>
+                    <NavLink to='/' className='header_logo-icon'>
+                        inviShop.
+                    </NavLink>
+                </div>
+                <div className='header_menu'>
+                    {menuLinks.map((link) => (
+                        <NavLink
+                            to={link.path}
+                            key={link.title}
+                            className='header_menu-item'
+                        >
+                            {link.title}
+                        </NavLink>
+                    ))}
+                </div>
+                <div className='header_button'>
+                    {userLogin ? (
+                        <img
+                            src={userImage}
+                            alt=''
+                            className='header_button-userimg'
+                        />
+                    ) : (
+                        <NavLink to='/login' className='header_button-login'>
+                            <i className='fa-solid fa-user' />
+                        </NavLink>
+                    )}
+
+                    <NavLink to='/cart' className='header_button-cart'>
+                        Cart | ({cartQuantity})
+                    </NavLink>
+                </div>
+            </div>
         </div>
     );
 }

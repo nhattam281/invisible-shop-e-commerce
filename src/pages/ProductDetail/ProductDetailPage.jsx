@@ -3,7 +3,7 @@ import './ProductDetailPage.scss';
 
 function ProductDetailPage() {
     return (
-        <div>
+        <div className='product'>
             <h1>ProductDetailPage</h1>
         </div>
     );

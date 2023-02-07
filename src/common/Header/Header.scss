@@ -1,9 +1,119 @@
 .header {
-    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    background-color: #fff;
+
+    z-index: 50;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 20px;
+
+    height: 70px;
+
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+        0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.header_logo-icon {
+    color: var(--main-color);
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 30px;
+    text-decoration: none;
 }
 
 .header_menu {
-    color: #000;
-    padding-left: 12px;
-    text-decoration: none;
+    display: flex;
+    column-gap: 12px;
+    position: relative;
+
+    &-item {
+        padding: 10px 24px;
+        color: #333;
+        text-decoration: none;
+
+        &:hover {
+            color: var(--main-color);
+        }
+    }
 }
+
+.header_menu-item.active {
+    color: white;
+    position: relative;
+    transition: all 0.5s linear;
+    z-index: 5;
+    &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        // background-color: #4575d8;
+        background-color: var(--main-color);
+        border-radius: 30px;
+        z-index: -1;
+        animation: effect 0.2s linear;
+    }
+    @keyframes effect {
+        0% {
+            transform: scale(0.5);
+            opacity: 0;
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+}
+
+.header_button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 18px;
+
+    &-userimg {
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+    }
+
+    &-login {
+        padding: 10px 12px;
+        color: var(--main-color);
+
+        &:hover {
+            opacity: 0.8;
+            color: var(--text-white);
+            background-color: var(--main-color);
+            border-radius: 50%;
+        }
+    }
+
+    &-cart {
+        padding: 10px 24px;
+        border-radius: 30px;
+
+        color: white;
+        background-color: var(--main-color);
+
+        text-decoration: none;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}
+
+// responsive header

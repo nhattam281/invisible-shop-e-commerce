@@ -3,6 +3,16 @@
 
 :root {
     /* cac bien global */
+    --main-color: #2ea5a2;
+    --black-color: #000;
+    --text-dark: #333;
+    --text-white: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html {
