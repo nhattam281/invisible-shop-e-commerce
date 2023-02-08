@@ -20,12 +20,12 @@ const menuLinks = [
 
 function Header() {
     const cartQuantity = 2;
-    const [userLogin, setUserLogin] = useState(true);
+    const [userLogin, setUserLogin] = useState(false);
     const [showSubMenu, setShowSubMenu] = useState(false);
 
     return (
         <div className='header'>
-            <div className='container'>
+            <div className='header_container'>
                 <div className='header_logo'>
                     <NavLink to='/' className='header_logo-icon'>
                         inviShop.

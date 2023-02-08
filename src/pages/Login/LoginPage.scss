@@ -1,0 +1,125 @@
+.login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+
+    background-color: #e9eefa;
+    text-align: center;
+
+    &_container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+
+        background-color: white;
+
+        border-radius: 20px;
+
+        box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+            0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+        &-background {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            flex: 1;
+            background-image: url(../../assets/images/wave.png);
+            background-size: cover;
+            position: relative;
+
+            &-img {
+                width: 500px;
+                z-index: 1;
+            }
+        }
+
+        &-form {
+            display: flex;
+            align-items: center;
+            // justify-content: center;
+            flex-direction: column;
+
+            flex: 1;
+
+            h1 {
+                color: var(--main-color);
+                margin-bottom: 48px;
+                text-transform: uppercase;
+            }
+        }
+
+        .login_input {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            width: 50%;
+
+            input {
+                width: 100%;
+                padding: 16px;
+                margin-bottom: 22px;
+                border: 1px solid var(--main-color);
+                border-radius: 5px;
+                outline: none;
+
+                color: var(--main-color);
+
+                font-size: 18px;
+            }
+
+            input:valid ~ span,
+            input:focus ~ span {
+                padding: 5px;
+                color: var(--main-color);
+                background-color: white;
+                transform: translateX(8px) translateY(-16px);
+
+                border-radius: 5px;
+                opacity: 1;
+            }
+
+            span {
+                position: absolute;
+                padding: 16px;
+                font-size: 16px;
+                pointer-events: none;
+
+                transition: 0.5s;
+                opacity: 0.4;
+            }
+        }
+
+        .login_button {
+            margin: 10px 0;
+            padding: 14px;
+            min-width: 50%;
+            outline: none;
+            border: none;
+            border-radius: 25px;
+
+            font-size: 18px;
+            line-height: 1.5;
+            text-decoration: none;
+
+            color: #fff;
+            background-image: linear-gradient(
+                to right,
+                #32be8f,
+                #38d39f,
+                #32be8f
+            );
+            background-size: 200%;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+
+        .login_button:hover {
+            opacity: 0.8;
+        }
+    }
+}
