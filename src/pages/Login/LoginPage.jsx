@@ -17,16 +17,10 @@ function LoginPage() {
                 <div className='login_container-form'>
                     <h1>Login</h1>
                     <div className='login_input'>
-                        {/* <i class='fas fa-user'></i>
-                        <label htmlFor=''>User Name</label>
-                        <input type='text' required /> */}
                         <input type='text' required />
                         <span>User Name</span>
                     </div>
                     <div className='login_input'>
-                        {/* <label htmlFor=''>Password</label>
-                        <i class='fas fa-lock'></i>
-                        <input type='password' required /> */}
                         <input type='password' required />
                         <span>Password</span>
                     </div>
@@ -38,7 +32,15 @@ function LoginPage() {
                         SignUp
                     </NavLink>
 
-                    
+                    <div className='login_forgot-password'>
+                        <span>Forgot password?</span>
+                        <NavLink
+                            to='/login'
+                            className='login_forgot-password-link'
+                        >
+                            Click here
+                        </NavLink>
+                    </div>
                 </div>
             </div>
         </div>

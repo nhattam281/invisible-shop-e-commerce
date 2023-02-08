@@ -1,4 +1,4 @@
-.login {
+.signup {
     height: 100vh;
     text-align: center;
 
@@ -42,7 +42,7 @@
             }
         }
 
-        .login_forgot-password {
+        .signup_have-account {
             margin-top: 16px;
             &-link {
                 text-decoration: none;
@@ -50,7 +50,7 @@
             }
         }
 
-        .login_input {
+        .signup_input {
             position: relative;
             display: flex;
             flex-direction: column;
@@ -92,7 +92,7 @@
             }
         }
 
-        .login_button {
+        .signup_button {
             margin: 10px 0;
             padding: 14px;
             min-width: 50%;
@@ -116,7 +116,7 @@
             transition: 0.5s;
         }
 
-        .login_button:hover {
+        .signup_button:hover {
             opacity: 0.8;
         }
     }
