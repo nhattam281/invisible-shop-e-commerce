@@ -20,9 +20,17 @@ const menuLinks = [
 
 function Header() {
     const cartQuantity = 2;
-    const [userLogin, setUserLogin] = useState(false);
+    const [userLogin, setUserLogin] = useState(true);
     const [showSubMenu, setShowSubMenu] = useState(false);
 
+    const toggleSubmenu = () => {
+        setShowSubMenu(!showSubMenu);
+    };
+
+    const handleLogout = () => {
+        console.log('user', userLogin);
+        setUserLogin(() => console.log('kyv'));
+    };
     return (
         <div className='header'>
             <div className='header_container'>
@@ -59,6 +67,43 @@ function Header() {
                         Cart | ({cartQuantity})
                     </NavLink>
                 </div>
+                <div
+                    className='header_show-submenu-button'
+                    onClick={toggleSubmenu}
+                >
+                    <i className='fa-solid fa-bars'></i>
+                </div>
+
+                {showSubMenu && (
+                    <div className='header_submenu'>
+                        {menuLinks.map((link) => (
+                            <NavLink
+                                to={link.path}
+                                key={link.title}
+                                className='header_menu-item'
+                                onClick={toggleSubmenu}
+                            >
+                                {link.title}
+                            </NavLink>
+                        ))}
+                        {userLogin ? (
+                            <NavLink
+                                to={'/login'}
+                                className='header_submenu-button'
+                                onClick={handleLogout}
+                            >
+                                Logout
+                            </NavLink>
+                        ) : (
+                            <NavLink
+                                to={'/login'}
+                                className='header_submenu-button'
+                            >
+                                Login
+                            </NavLink>
+                        )}
+                    </div>
+                )}
             </div>
         </div>
     );

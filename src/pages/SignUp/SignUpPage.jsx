@@ -37,12 +37,12 @@ function SignUpPage() {
                     </NavLink> */}
 
                     <div className='signup_have-account'>
-                        <span>Have account?</span>
+                        <span>Have an account?</span>
                         <NavLink
                             to='/login'
                             className='signup_have-account-link'
                         >
-                            Click here
+                            Login
                         </NavLink>
                     </div>
                 </div>
