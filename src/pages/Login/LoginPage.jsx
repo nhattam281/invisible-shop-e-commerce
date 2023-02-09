@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import bgSVG from '../../assets/images/bg.svg';
+import bgSVG from '../../assets/svg/bg.svg';
 import './LoginPage.scss';
 
 function LoginPage() {

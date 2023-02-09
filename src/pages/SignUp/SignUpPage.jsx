@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import bgSVG from '../../assets/images/bg.svg';
+import bgSVG from '../../assets/svg/bg.svg';
 import './SignUpPage.scss';
 
 function SignUpPage() {
@@ -32,9 +32,6 @@ function SignUpPage() {
                     <NavLink to='/login' className='signup_button'>
                         SignUp
                     </NavLink>
-                    {/* <NavLink to='/login' className='signup_button'>
-                        Login
-                    </NavLink> */}
 
                     <div className='signup_have-account'>
                         <span>Have an account?</span>
@@ -42,7 +39,7 @@ function SignUpPage() {
                             to='/login'
                             className='signup_have-account-link'
                         >
-                            Login
+                            Sign in
                         </NavLink>
                     </div>
                 </div>

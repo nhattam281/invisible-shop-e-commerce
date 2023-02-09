@@ -27,10 +27,6 @@ function Header() {
         setShowSubMenu(!showSubMenu);
     };
 
-    const handleLogout = () => {
-        console.log('user', userLogin);
-        setUserLogin(() => console.log('kyv'));
-    };
     return (
         <div className='header'>
             <div className='header_container'>
@@ -90,7 +86,9 @@ function Header() {
                             <NavLink
                                 to={'/login'}
                                 className='header_submenu-button'
-                                onClick={handleLogout}
+                                onClick={() => {
+                                    setUserLogin(!userLogin);
+                                }}
                             >
                                 Logout
                             </NavLink>
