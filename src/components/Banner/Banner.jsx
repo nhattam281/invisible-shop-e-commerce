@@ -9,17 +9,16 @@ function Banner() {
             <div className='banner_container'>
                 <div className='banner_content'>
                     <div className='banner_content-items'>
-                        <h2>We Are Creating Perfect</h2>
-                        <h2>Digital Product To</h2>
-                        <h2 className='banner_content-highlight'>
-                            Promote Your Brand
+                        <h2 className='banner_content-upper'>
+                            Online Shopping
                         </h2>
-                        <p className='banner_content-description'>
+                        <h2 className='banner_content-highlight'>
+                            Invisible Shop.
+                        </h2>
+                        {/* <p className='banner_content-description'>
                             Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Illo velit iusto sint nesciunt ducimus.
-                            Doloribus officia error omnis suscipit sequi iure ut
-                            ipsa eos.
-                        </p>
+                        </p> */}
                     </div>
 
                     <NavLink to='/shop' className='banner_button'>

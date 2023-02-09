@@ -1,10 +1,13 @@
 .banner {
     width: 100%;
-    height: 500px;
+    // height: 500px;
     margin: auto;
+
+    background-color: var(--main-color);
 
     &_container {
         display: flex;
+        justify-content: center;
 
         .banner_content,
         .banner_image {
@@ -14,34 +17,48 @@
         .banner_content {
             display: flex;
             justify-content: center;
-            align-items: flex-start;
+            align-items: center;
             flex-direction: column;
             padding: 0 24px;
 
             &-items {
                 width: 80%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
             }
+
             h2 {
                 font-size: 36px;
+                padding: 2px 0;
+            }
+
+            &-upper {
+                color: var(--text-white);
+                text-transform: uppercase;
             }
 
             &-highlight {
-                color: var(--main-color);
+                color: var(--text-white);
             }
 
             &-description {
+                width: 55%;
+                max-width: 75%;
                 margin-top: 24px;
+                text-align: justify;
             }
 
             .banner_button {
-                margin-top: 12px;
+                margin-top: 24px;
                 padding: 12px 24px;
                 border-radius: 30px;
-                color: white;
-                background-color: var(--main-color);
+                color: var(--main-color);
+                background-color: white;
                 text-decoration: none;
 
-                opacity: 0.8;
+                transition: all 0.3 linear;
                 transition: 0.4s;
 
                 &:hover {
@@ -53,4 +70,36 @@
             // flex: 1;
         }
     }
+}
+
+// responsive header
+
+/* Mobile */
+@media (max-width: 46.1875em) {
+    /* <= 739px */
+    .banner {
+        &_image {
+            display: none;
+        }
+        &_container {
+            .banner_content {
+                width: 100%;
+            }
+        }
+    }
+}
+
+/* Tablet */
+@media (min-width: 46.25em) and (max-width: 63.9375em) {
+    /* 740 - 1023px  */
+}
+
+/* Tablet & Mobile */
+@media (max-width: 63.9375em) {
+    /*<= 1023px */
+}
+
+/* PC */
+@media (min-width: 64em) {
+    /* >=1024px */
 }
