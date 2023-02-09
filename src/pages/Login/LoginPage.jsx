@@ -38,7 +38,7 @@ function LoginPage() {
                             to='/login'
                             className='login_forgot-password-link'
                         >
-                            Click here
+                            Coming soon
                         </NavLink>
                     </div>
                 </div>

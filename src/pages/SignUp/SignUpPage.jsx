@@ -26,7 +26,7 @@ function SignUpPage() {
                     </div>
                     <div className='signup_input'>
                         <input type='password' required />
-                        <span>Re-enter password</span>
+                        <span>Confirm</span>
                     </div>
 
                     <NavLink to='/login' className='signup_button'>
