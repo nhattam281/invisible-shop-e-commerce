@@ -1,32 +1,34 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import bannerImg from '../../assets/images/hero-img.png';
+import { Typewriter } from 'react-simple-typewriter';
+
 import './Banner.scss';
 
 function Banner() {
+    // console.log({ typeWriter });
     return (
         <div className='banner'>
             <div className='banner_container'>
-                <div className='banner_content'>
-                    <div className='banner_content-items'>
-                        <h2 className='banner_content-upper'>
-                            Online Shopping
-                        </h2>
-                        <h2 className='banner_content-highlight'>
-                            Invisible Shop.
-                        </h2>
-                        {/* <p className='banner_content-description'>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Illo velit iusto sint nesciunt ducimus.
-                        </p> */}
-                    </div>
+                <h2>Welcome to</h2>
 
-                    <NavLink to='/shop' className='banner_button'>
-                        Get started now
-                    </NavLink>
-                </div>
+                <h1>
+                    <Typewriter
+                        words={['invisibleShop.']}
+                        loop
+                        cursor
+                        cursorStyle='|'
+                        typeSpeed={90}
+                        deleteSpeed={50}
+                        delaySpeed={1000}
+                    />
+                </h1>
+                <div className='hearder_container-gap'></div>
 
-                <img src={bannerImg} alt='inviShop.' className='banner_image' />
+                <h3>Enjoy your shopping times</h3>
+
+                <NavLink to='/shop' className='banner_button'>
+                    Get started
+                </NavLink>
             </div>
         </div>
     );
