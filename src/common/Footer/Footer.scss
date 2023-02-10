@@ -1,63 +1,176 @@
+// .footer {
+//     bottom: 0;
+
+//     width: 100%;
+
+//     padding: 70px 0;
+
+//     color: var(--text-white);
+//     background-color: var(--main-color);
+
+//     &_container {
+//         display: flex;
+//         padding: 0 20px;
+//         column-gap: 80px;
+//         height: 100%;
+
+//         &-col {
+//             display: flex;
+//             flex-direction: column;
+//             align-items: flex-start;
+//             width: 25%;
+//             text-transform: capitalize;
+
+//             h4 {
+//                 font-weight: 600;
+//                 margin-bottom: 12px;
+//             }
+
+//             ul {
+//                 list-style: none;
+//             }
+
+//             li {
+//                 padding: 10px 0;
+//             }
+//         }
+//     }
+// }
+// .footer_socials {
+//     h4 {
+//         margin-bottom: 12px;
+//     }
+//     .footer_button-social {
+//         padding: 10px 12px;
+//         margin-left: 8px;
+//         color: var(--main-color);
+//         background-color: white;
+//         border-radius: 50%;
+//     }
+// }
+
 .footer {
-    bottom: 0;
-
     width: 100%;
+    // min-height: 350px;
 
-    padding: 70px 0;
-
-    color: var(--text-white);
     background-color: var(--main-color);
+
+    text-transform: capitalize;
 
     &_container {
         display: flex;
-        padding: 0 20px;
-        column-gap: 80px;
-        height: 100%;
+        column-gap: 20px;
 
-        &-col {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            width: 25%;
-            text-transform: capitalize;
+        padding: 20px 20px;
+    }
+}
 
-            h4 {
-                font-weight: 600;
-                margin-bottom: 12px;
-            }
+.footer_logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px;
 
-            ul {
-                list-style: none;
-            }
+    color: var(--main-color);
+    background-color: white;
 
-            li {
-                padding: 10px 0;
-            }
+    border-radius: 30px;
+    flex: 1;
+}
+
+.footer_content {
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+    flex: 3;
+
+    color: var(--text-white);
+
+    &-socials {
+        display: flex;
+        align-items: center;
+        column-gap: 6px;
+
+        padding: 16px 0;
+
+        border-bottom: 2px solid white;
+    }
+
+    &-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        h4 {
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        ul {
+            list-style: none;
         }
     }
 }
-.footer_socials {
-    h4 {
-        margin-bottom: 12px;
+
+.footer_content-infor-items {
+    li:not(:last-child) {
+        margin-bottom: 4px;
     }
-    .footer_button-social {
-        padding: 10px 12px;
-        margin-left: 8px;
-        color: var(--main-color);
-        background-color: white;
-        border-radius: 50%;
+
+    li:hover {
+        transform: translateX(2px);
+        cursor: pointer;
     }
 }
 
-// /*responsive*/
-// @media (max-width: 767px) {
-//     .footer-col {
-//         width: 50%;
-//         margin-bottom: 30px;
-//     }
-// }
-// @media (max-width: 574px) {
-//     .footer-col {
-//         width: 100%;
-//     }
-// }
+.footer_social-button {
+    padding: 5px 30px;
+
+    color: var(--main-color);
+    background-color: white;
+    text-decoration: none;
+
+    border-radius: 30px;
+}
+
+/* responsive */
+
+/* Mobile */
+@media (max-width: 46.1875em) {
+    /* <= 739px */
+    .footer_container {
+        flex-direction: column;
+        row-gap: 10px;
+    }
+
+    .footer_content-socials {
+        flex-direction: column;
+        border-top: 2px solid white;
+        row-gap: 4px;
+    }
+
+    .footer_social-button {
+        width: 50%;
+        text-align: center;
+    }
+
+    .footer_content-info {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-row-gap: 28px;
+    }
+}
+
+/* Tablet */
+@media (min-width: 46.25em) and (max-width: 63.9375em) {
+    /* 740 - 1023px  */
+}
+
+/* Tablet & Mobile */
+@media (max-width: 63.9375em) {
+    /*<= 1023px */
+}
+
+/* PC */
+@media (min-width: 64em) {
+    /* >=1024px */
+}
