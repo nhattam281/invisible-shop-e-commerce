@@ -1,28 +1,27 @@
-.offers {
-    width: 100%;
+.quote {
+    padding: 50px 20px;
+
     display: flex;
     column-gap: 16px;
 
+    width: 100%;
+
     background-color: #f4f4f4;
-
-    padding: 50px 20px;
-
-    overflow: hidden;
 }
 
 /* responsive */
 /* Mobile */
 @media (max-width: 46.1875em) {
-    .offers {
+    .quote {
         display: grid;
-        row-gap: 16px;
+        row-gap: 48px;
     }
 }
 
 /* Tablet */
 @media (min-width: 46.25em) and (max-width: 63.9375em) {
     /* 740 - 1023px  */
-    .offers {
+    .quote {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         row-gap: 16px;
