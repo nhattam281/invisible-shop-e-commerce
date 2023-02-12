@@ -1,4 +1,35 @@
-.product-details {
-    padding-top: 80px;
+.product_detail {
+    padding-top: 70px;
+    padding-left: 20px;
+    padding-right: 20px;
     text-align: center;
+}
+.product_detail-banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 16px;
+
+    padding: 32px;
+
+    width: 100%;
+    border-radius: 8px;
+
+    color: white;
+    // background-image: url(../../assets/images/banner1.jpg);
+    background: radial-gradient(
+        circle,
+        rgba(46, 165, 162, 1) 0%,
+        rgba(50, 190, 143, 1) 100%
+    );
+    background-size: cover;
+
+    h2 {
+        font-size: 35px;
+    }
+
+    span {
+        font-size: 20px;
+    }
 }
