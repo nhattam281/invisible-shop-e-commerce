@@ -11,7 +11,7 @@ function SingleProduct() {
                 />
             </div>
             <div className='single_product-details'>
-                <h1>Product Name</h1>
+                <h1>HP Pavilion Gaming 15</h1>
                 <div className='single_product-vote'>
                     <div>
                         <i className='fa-solid fa-star' />
@@ -25,7 +25,7 @@ function SingleProduct() {
                 </div>
                 <h2>$756</h2>
                 <div className='single_product-sale'>
-                    <p>840</p>
+                    <p>$840</p>
                     <div className='single_product-discount'>-10%</div>
                 </div>
                 <div className='single_product-stock'>

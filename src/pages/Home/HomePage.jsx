@@ -1,5 +1,6 @@
 import React from 'react';
 import Banner from '../../components/Banner/Banner';
+import Countdown from '../../components/Countdown/Countdown';
 import Newsletter from '../../components/Newsletter/Newsletter';
 import Offer from '../../components/Offer/Offer';
 import Quote from '../../components/Quote/Quote';
@@ -11,6 +12,7 @@ function HomePage() {
         <div className='home'>
             <Banner />
             <Offer />
+            <Countdown />
             <TrendingProduct />
             <Newsletter />
             <Quote />
