@@ -55,4 +55,18 @@
         margin-right: 32px;
         padding: 48px 16px;
     }
+
+    .countdown_title {
+        h1 {
+            font-size: 16px;
+        }
+    }
+}
+
+/* Tablet */
+@media (min-width: 46.25em) and (max-width: 63.9375em) {
+    /* 740 - 1023px  */
+    .countdown_clock {
+        min-width: 80%;
+    }
 }

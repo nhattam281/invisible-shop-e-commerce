@@ -12,7 +12,6 @@ function TrendingProduct() {
         slidesToShow: 4,
         slidesToScroll: 4,
         initialSlide: 0,
-        prevArrow: false,
 
         responsive: [
             {

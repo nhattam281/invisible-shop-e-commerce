@@ -1,14 +1,34 @@
 import React from 'react';
+import Slider from 'react-slick';
+
 import './SingleProduct.scss';
 
 function SingleProduct() {
+    const settings = {
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        initialSlice: 0,
+    };
+
     return (
         <div className='single_product'>
             <div className='single_product-image'>
-                <img
-                    src='https://i.dummyjson.com/data/products/9/1.jpg'
-                    alt='detail'
-                />
+                <Slider {...settings}>
+                    <img
+                        src='https://i.dummyjson.com/data/products/3/1.jpg'
+                        alt='detail'
+                    />
+                    <img
+                        src='https://i.dummyjson.com/data/products/1/2.jpg'
+                        alt='detail'
+                    />
+                    <img
+                        src='https://i.dummyjson.com/data/products/3/1.jpg'
+                        alt='detail'
+                    />
+                </Slider>
             </div>
             <div className='single_product-details'>
                 <h1>HP Pavilion Gaming 15</h1>
