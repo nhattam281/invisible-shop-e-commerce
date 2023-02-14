@@ -1,34 +1,50 @@
-import React from 'react';
-import Slider from 'react-slick';
+import React, { useState } from 'react';
 
 import './SingleProduct.scss';
 
+const productImg = {
+    images: [
+        'https://i.dummyjson.com/data/products/26/1.jpg',
+        'https://i.dummyjson.com/data/products/26/2.jpg',
+        'https://i.dummyjson.com/data/products/26/3.jpg',
+        'https://i.dummyjson.com/data/products/26/4.jpg',
+        'https://i.dummyjson.com/data/products/26/5.jpg',
+        'https://i.dummyjson.com/data/products/26/thumbnail.jpg',
+    ],
+};
+
 function SingleProduct() {
-    const settings = {
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        initialSlice: 0,
+    const [sliderImage, setSliderImage] = useState(productImg.images[0]);
+
+    const handleSingleProductImgSlider = (index) => {
+        const slider = productImg.images[index];
+        setSliderImage(slider);
     };
 
     return (
         <div className='single_product'>
-            <div className='single_product-image'>
-                <Slider {...settings}>
-                    <img
-                        src='https://i.dummyjson.com/data/products/3/1.jpg'
-                        alt='detail'
-                    />
-                    <img
-                        src='https://i.dummyjson.com/data/products/1/2.jpg'
-                        alt='detail'
-                    />
-                    <img
-                        src='https://i.dummyjson.com/data/products/3/1.jpg'
-                        alt='detail'
-                    />
-                </Slider>
+            <div className='single_product_image'>
+                <img
+                    src={sliderImage}
+                    alt=''
+                    className='single_product_image-zoom'
+                />
+                <div className='single_product_image-thumnail'>
+                    {productImg.images.map((value, index) => {
+                        console.log('this', index);
+                        return (
+                            <img
+                                key={index}
+                                src={value}
+                                alt=''
+                                className='thumnail'
+                                onClick={() =>
+                                    handleSingleProductImgSlider(index)
+                                }
+                            />
+                        );
+                    })}
+                </div>
             </div>
             <div className='single_product-details'>
                 <h1>HP Pavilion Gaming 15</h1>

@@ -6,61 +6,63 @@
     width: 100%;
 }
 
-.single_product-image {
-    position: relative;
-    // flex: 1;
+.single_product_image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    row-gap: 24px;
+}
+.single_product_image-zoom {
+    max-width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+.single_product_image-thumnail {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    overflow-x: scroll;
+
     width: 100%;
-    height: 100%;
+
+    // .thumnail {
+    //     width: 100px;
+    //     height: 70px;
+    //     object-fit: cover;
+    //     &:hover {
+    //         transform: scale(0.9);
+    //     }
+
+    //     &:not(:first-child) {
+    //         margin-left: 6px;
+    //     }
+    // }
 
     img {
-        object-fit: contain;
-    }
-
-    .slick-list {
-        width: 440px;
-        height: 310px;
-        overflow: hidden;
-    }
-    .slick-track {
-        display: flex;
-        align-items: center;
-
-        width: 100%;
-        height: 100%;
-    }
-
-    .slick-arrow {
-        position: absolute;
-        left: 50%;
-        // bottom: -38px;
-        bottom: 0;
-
-        padding: 8px 24px;
-
-        color: var(--main-color);
-        border: 2px solid var(--main-color);
-        background-color: white;
-
-        font-weight: 600;
-
-        border-radius: 8px;
-        cursor: pointer;
-
+        width: 100px;
+        height: 70px;
+        object-fit: cover;
         &:hover {
-            color: white;
-            background-color: var(--main-color);
+            transform: scale(0.9);
+        }
+
+        &:not(:first-child) {
+            margin-left: 6px;
         }
     }
 
-    .slick-prev {
-        transform: translateX(-100px);
+    &::-webkit-scrollbar {
+        // height: 5px;
+        display: none;
     }
-    .slick-next {
-        transform: translateX(20px);
-    }
+    // &::-webkit-scrollbar-track {
+    //     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    //     border-radius: 10px;
+    // }
+    // &::-webkit-scrollbar-thumb {
+    //     border-radius: 10px;
+    // }
 }
 
 .single_product-details {
@@ -162,5 +164,25 @@
 @media (max-width: 46.1875em) {
     .single_product {
         display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .single_product_image {
+        overflow: hidden;
+        margin-bottom: 24px;
+    }
+
+    .single_product_image-thumnail {
+        overflow-x: scroll;
+        justify-content: stretch;
+    }
+}
+
+/* Tablet */
+@media (min-width: 46.25em) and (max-width: 63.9375em) {
+    /* 740 - 1023px  */
+    .single_product_image-thumnail {
+        overflow-x: scroll;
+        justify-content: stretch;
     }
 }
