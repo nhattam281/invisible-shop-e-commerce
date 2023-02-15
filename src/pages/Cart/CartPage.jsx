@@ -4,7 +4,10 @@ import './CartPage.scss';
 function CartPage() {
     return (
         <div className='cart'>
-            <h1>Cart Page</h1>
+            <div className='cart_banner'>
+                <h2>Cart</h2>
+                <span>Check out</span>
+            </div>
         </div>
     );
 }
