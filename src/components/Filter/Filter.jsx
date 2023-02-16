@@ -25,15 +25,17 @@ const filterCategory = [
 ];
 function Filter({ onClick = () => {} }) {
     const [showFilterDropdown, setShowFilterDropdown] = useState(false);
+    const [filterTitle, setFilterTitle] = useState('Category');
 
-    const handleShowDropdown = () => {
+    const handleShowDropdown = (e) => {
         setShowFilterDropdown(!showFilterDropdown);
+        setFilterTitle(e.target.textContent);
     };
 
     return (
         <div className='filter'>
             <div className='filter_dropdown' onClick={handleShowDropdown}>
-                <span>Category</span>
+                <span>{filterTitle}</span>
                 <i className='fa fa-caret-down'></i>
             </div>
 

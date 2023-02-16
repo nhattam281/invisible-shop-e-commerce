@@ -10,14 +10,16 @@ const sortBy = [
 
 function SortBy({ onClick = () => {} }) {
     const [showSortByDropdown, setShowSortByDropdown] = useState(false);
+    const [sortTitle, setSortTitle] = useState('Sort by');
 
-    const handleShowDropdown = () => {
+    const handleShowDropdown = (e) => {
         setShowSortByDropdown(!showSortByDropdown);
+        setSortTitle(e.target.textContent);
     };
     return (
         <div className='sortby'>
             <div className='sortby_dropdown' onClick={handleShowDropdown}>
-                <span>SortBy</span>
+                <span>{sortTitle}</span>
                 <i className='fa fa-caret-down'></i>
             </div>
 
@@ -27,7 +29,11 @@ function SortBy({ onClick = () => {} }) {
                     onClick={handleShowDropdown}
                 >
                     {sortBy.map((value, index) => (
-                        <div key={index} className='sortby_dropdown-item' onClick={onClick}>
+                        <div
+                            key={index}
+                            className='sortby_dropdown-item'
+                            onClick={onClick}
+                        >
                             {value}
                         </div>
                     ))}

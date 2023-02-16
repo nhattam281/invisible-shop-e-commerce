@@ -39,7 +39,7 @@ function Countdown() {
                 setTimerSeconds(seconds);
             }
 
-            console.log(distance);
+            // console.log(distance);
         }, 1000);
     };
 

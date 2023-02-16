@@ -22,6 +22,10 @@ function ShopPage() {
                     />
                 </div>
             </div>
+
+            <div className="shop_product">
+                
+            </div>
         </div>
     );
 }
