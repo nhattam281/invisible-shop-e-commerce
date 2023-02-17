@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Slider from 'react-slick';
 
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
     productsAllSelector,
-    productStatusSelector,
+    productsStatusSelector,
 } from '../../redux/selector';
+import { fetchProducts } from '../../redux/Slice/productSlice';
 import { STATUS } from '../../utils/status';
 import Heading from '../Heading/Heading';
 import Product from '../Product/Product';
@@ -44,18 +45,27 @@ function TrendingProduct() {
         ],
     };
 
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchProducts());
+        window.scrollTo(0, 0);
+    }, []);
+
     const products = useSelector(productsAllSelector);
-    const productsStatus = useSelector(productStatusSelector);
+    const productsStatus = useSelector(productsStatusSelector);
 
     return (
         <div className='trending_prod'>
             <Heading title={'Trending products'} />
             <Slider {...settings} className='trending_product-slider'>
-                {productsStatus === STATUS.SUCCEEDED
-                    ? products.map((value) => (
-                          <Product key={value.id} item={value} />
-                      ))
-                    : console.log('loading')}
+                {productsStatus === STATUS.SUCCEEDED ? (
+                    products.map((value) => (
+                        <Product key={value.id} item={value} />
+                    ))
+                ) : (
+                    <Product.Loading />
+                )}
             </Slider>
         </div>
     );

@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import './SortBy.scss';
 
 const sortBy = [
-    'name A - Z',
-    'name Z - A',
-    'Price low - high',
-    'price hight - low',
+    'Name A - Z',
+    'Name Z - A',
+    'Price Low - High',
+    'Price Hight - Low',
 ];
 
 function SortBy({ onClick = () => {} }) {

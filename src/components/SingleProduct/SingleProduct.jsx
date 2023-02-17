@@ -1,25 +1,34 @@
 import React, { useState } from 'react';
-
 import './SingleProduct.scss';
 
-const productImg = {
-    images: [
-        'https://i.dummyjson.com/data/products/26/1.jpg',
-        'https://i.dummyjson.com/data/products/26/2.jpg',
-        'https://i.dummyjson.com/data/products/26/3.jpg',
-        'https://i.dummyjson.com/data/products/26/4.jpg',
-        'https://i.dummyjson.com/data/products/26/5.jpg',
-        'https://i.dummyjson.com/data/products/26/thumbnail.jpg',
-    ],
-};
-
-function SingleProduct() {
-    const [sliderImage, setSliderImage] = useState(productImg.images[0]);
+function SingleProduct({ item }) {
+    const [sliderImage, setSliderImage] = useState(item.images[0]);
+    const [quantity, setQuantity] = useState(1);
 
     const handleSingleProductImgSlider = (index) => {
-        const slider = productImg.images[index];
+        const slider = item.images[index];
         setSliderImage(slider);
     };
+
+    const handleIncrease = () => {
+        setQuantity((prevQty) => {
+            let temQty = prevQty + 1;
+            if (temQty > item.stock) temQty = item.stock;
+            return temQty;
+        });
+    };
+
+    const handleDecrease = () => {
+        setQuantity((prevQty) => {
+            let temQty = prevQty - 1;
+            if (temQty < 1) temQty = 1;
+            return temQty;
+        });
+    };
+
+    const discountPrice = Math.floor(
+        item.price - item.price * (item.discountPercentage / 100)
+    );
 
     return (
         <div className='single_product'>
@@ -30,8 +39,7 @@ function SingleProduct() {
                     className='single_product_image-zoom'
                 />
                 <div className='single_product_image-thumnail'>
-                    {productImg.images.map((value, index) => {
-                        console.log('this', index);
+                    {item.images.map((value, index) => {
                         return (
                             <img
                                 key={index}
@@ -47,7 +55,7 @@ function SingleProduct() {
                 </div>
             </div>
             <div className='single_product-details'>
-                <h1>HP Pavilion Gaming 15</h1>
+                <h1>{item.title}</h1>
                 <div className='single_product-vote'>
                     <div>
                         <i className='fa-solid fa-star' />
@@ -59,21 +67,34 @@ function SingleProduct() {
                     <span>|</span>
                     <p>(4 reviews)</p>
                 </div>
-                <h2>$756</h2>
+                <h2>${discountPrice}</h2>
                 <div className='single_product-sale'>
-                    <p>$840</p>
-                    <div className='single_product-discount'>-10%</div>
+                    <p>${item.price}</p>
+                    <div className='single_product-discount'>
+                        - {item.discountPercentage} %
+                    </div>
                 </div>
                 <div className='single_product-stock'>
-                    <span>Status:</span>
-                    <p>in Stock</p>
+                    <span>Stock:</span>
+                    <p>{item.stock}</p>
                 </div>
                 <div className='single_product-decs'>
                     <span>Description:</span>
-                    <p>An apple mobile which is nothing like apple</p>
+                    <p>{item.description}</p>
                 </div>
                 <div className='single_product-quantity'>
                     <span>Quantity:</span>
+                    <div className='single_product-quantity-item'>
+                        <i
+                            className='fa-solid fa-minus'
+                            onClick={handleDecrease}
+                        ></i>
+                        <p>{quantity}</p>
+                        <i
+                            className='fa-solid fa-plus'
+                            onClick={handleIncrease}
+                        ></i>
+                    </div>
                 </div>
                 <button>Add to cart</button>
             </div>

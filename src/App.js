@@ -14,7 +14,10 @@ function App() {
             <Route element={<DefaultLayout />}>
                 <Route path='/' element={<HomePage />} />
                 <Route path='/cart' element={<CartPage />} />
-                <Route path='/productdetail' element={<ProductDetailPage />} />
+                <Route
+                    path='/productdetail/:productID'
+                    element={<ProductDetailPage />}
+                />
                 <Route path='/shop' element={<ShopPage />} />
             </Route>
             <Route path='/login' element={<LoginPage />} />

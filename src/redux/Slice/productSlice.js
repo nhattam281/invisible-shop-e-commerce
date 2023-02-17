@@ -5,6 +5,8 @@ import { STATUS } from '../../utils/status';
 const initialState = {
     products: [],
     productsStatus: STATUS.IDLE,
+    product: {},
+    productStatus: STATUS.IDLE,
 };
 
 const productsSlice = createSlice({
@@ -23,6 +25,18 @@ const productsSlice = createSlice({
             })
             .addCase(fetchProducts.rejected, (state, action) => {
                 state.productsStatus = STATUS.FAILED;
+            })
+
+            // get product by id
+            .addCase(getProductByID.pending, (state, action) => {
+                state.productStatus = STATUS.LOADING;
+            })
+            .addCase(getProductByID.fulfilled, (state, action) => {
+                state.productStatus = STATUS.SUCCEEDED;
+                state.product = action.payload;
+            })
+            .addCase(getProductByID.rejected, (state, action) => {
+                state.productStatus = STATUS.FAILED;
             });
     },
 });
@@ -33,5 +47,14 @@ const fetchProducts = createAsyncThunk('products/fetchProducts', async () => {
     return data.products;
 });
 
-export { fetchProducts };
+const getProductByID = createAsyncThunk(
+    'products/getProductByID',
+    async (id) => {
+        const res = await fetch(`${BASE_URL}products/${id}`);
+        const data = await res.json();
+        return data;
+    }
+);
+
+export { fetchProducts, getProductByID };
 export default productsSlice;
