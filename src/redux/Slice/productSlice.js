@@ -56,5 +56,15 @@ const getProductByID = createAsyncThunk(
     }
 );
 
-export { fetchProducts, getProductByID };
+const getProducsOfCategory = createAsyncThunk(
+    'products/getProductsOfCategory',
+    async (category) => {
+        const res = await fetch(`${BASE_URL}/products/${category}`);
+        const data = await res.json();
+        console.log(data);
+        return data;
+    }
+);
+
+export { fetchProducts, getProductByID, getProducsOfCategory};
 export default productsSlice;

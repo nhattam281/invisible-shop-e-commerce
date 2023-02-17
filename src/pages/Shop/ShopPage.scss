@@ -60,6 +60,19 @@
     }
 }
 
+.shop_product {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: space-evenly;
+    justify-items: center;
+    align-content: space-evenly;
+    align-items: center;
+    // display: flex;
+    // flex-direction: row;
+    // // justify-content: space-between;
+    // flex-wrap: wrap;
+}
 // responsive
 
 /* Mobile */
@@ -76,6 +89,9 @@
             }
         }
     }
+    .shop_product {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
 
 /* Tablet */
@@ -87,6 +103,9 @@
                 width: 230px;
             }
         }
+    }
+    .shop_product {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 

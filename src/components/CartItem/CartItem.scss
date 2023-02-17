@@ -1,0 +1,29 @@
+.cart_item {
+    width: 100%;
+}
+
+.cart_item-table {
+    width: 100%;
+    text-align: center;
+
+    thead {
+        tr {
+            color: var(--main-color);
+        }
+    }
+}
+
+.cart_item-image {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+}
+
+.cart_item-price,
+.cart_item-delete {
+    color: red;
+}
+
+.cart_item-delete:hover {
+    cursor: pointer;
+}

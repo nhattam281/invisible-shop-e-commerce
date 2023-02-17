@@ -3,7 +3,7 @@ import './CheckoutPage.scss'
 
 function CheckoutPage() {
     return (
-        <div>
+        <div className='checkout'>
             <h1>CheckoutPage</h1>
         </div>
     );

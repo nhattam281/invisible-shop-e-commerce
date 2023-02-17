@@ -8,9 +8,12 @@ const productsStatusSelector = (state) => state.products.productsStatus;
 const productSelector = (state) => state.products.product;
 const productStatusSelector = (state) => state.products.productStatus;
 
+// const productsRemainingSelector = createSelector();
+
 export {
     productsAllSelector,
     productsStatusSelector,
     productSelector,
     productStatusSelector,
+    // productsRemainingSelector,
 };
