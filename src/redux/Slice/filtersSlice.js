@@ -2,8 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
     search: '',
-    category: '',
-    sortby: '',
+    category: 'all category',
+    sortby: 'Default',
 };
 
 const filtersSlice = createSlice({

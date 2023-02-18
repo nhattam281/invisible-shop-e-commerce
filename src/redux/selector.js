@@ -19,7 +19,7 @@ const productsRemainingSelector = createSelector(
     filterCategorySelector,
     (productList, searchText, categoryFilter) => {
         return productList.filter((product) => {
-            if (categoryFilter === 'all category' || categoryFilter === '') {
+            if (categoryFilter === 'all category') {
                 return product.title.includes(searchText);
             }
 
@@ -32,19 +32,31 @@ const productsRemainingSelector = createSelector(
 );
 
 const productSortBySelector = createSelector(
-    productsRemainingSelector,
     filterSortBySelector,
-    (productRemaining, sortBy) => {
+    productsRemainingSelector,
+    (sortBy, productRemaining) => {
         if (sortBy === 'Price Low - High') {
-            console.log('low h');
-            return productRemaining.sort((a, b) => a.price - b.price);
-        }
-        if (sortBy === 'Price High - Low') {
-            console.log('high low');
-            return productRemaining.sort((a, b) => b.price - a.price);
-        }
-        if (sortBy === 'Name A - Z') {
-            return productRemaining.sort((a, b) => {
+            return [...productRemaining].sort((a, b) => {
+                if (a.price > b.price) {
+                    return 1;
+                }
+                if (a.price < b.price) {
+                    return -1;
+                }
+                return 0;
+            });
+        } else if (sortBy === 'Price High - Low') {
+            return [...productRemaining].sort((a, b) => {
+                if (a.price < b.price) {
+                    return 1;
+                }
+                if (a.price > b.price) {
+                    return -1;
+                }
+                return 0;
+            });
+        } else if (sortBy === 'Name A - Z') {
+            return [...productRemaining].sort((a, b) => {
                 if (a.title < b.title) {
                     return -1;
                 }
@@ -53,9 +65,8 @@ const productSortBySelector = createSelector(
                 }
                 return 0;
             });
-        }
-        if (sortBy === 'Name Z - A') {
-            return productRemaining.sort((a, b) => {
+        } else if (sortBy === 'Name Z - A') {
+            return [...productRemaining].sort((a, b) => {
                 if (a.title < b.title) {
                     return 1;
                 }
@@ -64,8 +75,9 @@ const productSortBySelector = createSelector(
                 }
                 return 0;
             });
+        } else {
+            return [...productRemaining];
         }
-        return productRemaining;
     }
 );
 
@@ -77,6 +89,5 @@ export {
     filterSearchSelector,
     filterCategorySelector,
     filterSortBySelector,
-    productsRemainingSelector,
     productSortBySelector,
 };

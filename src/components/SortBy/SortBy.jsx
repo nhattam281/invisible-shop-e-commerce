@@ -6,7 +6,7 @@ const sortBy = [
     'Name A - Z',
     'Name Z - A',
     'Price Low - High',
-    'Price Hight - Low',
+    'Price High - Low',
 ];
 
 function SortBy({ onClick = () => {} }) {

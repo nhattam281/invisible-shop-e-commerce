@@ -19,7 +19,7 @@ const menuLinks = [
 ];
 
 function Header() {
-    const cartQuantity = 2;
+    const cartQuantity = 1;
     const [userLogin, setUserLogin] = useState(false);
     const [showSubMenu, setShowSubMenu] = useState(false);
 

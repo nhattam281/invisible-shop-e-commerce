@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Filter from '../../components/Filter/Filter';
 import Loading from '../../components/Loading/Loading';
@@ -6,8 +6,6 @@ import Product from '../../components/Product/Product';
 import SortBy from '../../components/SortBy/SortBy';
 import {
     productSortBySelector,
-    // productsAllSelector,
-    // productsRemainingSelector,
     productsStatusSelector,
 } from '../../redux/selector';
 import filtersSlice from '../../redux/Slice/filtersSlice';
