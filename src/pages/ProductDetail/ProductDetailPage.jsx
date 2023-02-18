@@ -5,6 +5,7 @@ import SingleProduct from '../../components/SingleProduct/SingleProduct';
 import { productSelector } from '../../redux/selector';
 import { getProductByID } from '../../redux/Slice/productSlice';
 
+import Loading from '../../components/Loading/Loading';
 import { productStatusSelector } from '../../redux/selector';
 import { STATUS } from '../../utils/status';
 import './ProductDetailPage.scss';
@@ -27,8 +28,10 @@ function ProductDetailPage() {
                 <span>{product.title}</span>
             </div>
 
-            {productStatus === STATUS.SUCCEEDED && (
+            {productStatus === STATUS.SUCCEEDED ? (
                 <SingleProduct item={product} />
+            ) : (
+                <Loading />
             )}
         </div>
     );

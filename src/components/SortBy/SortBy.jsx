@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './SortBy.scss';
 
 const sortBy = [
+    'Default',
     'Name A - Z',
     'Name Z - A',
     'Price Low - High',

@@ -31,13 +31,12 @@
     padding-top: 14px;
     row-gap: 8px;
 
-    text-transform: capitalize;
-
     h3 {
         height: 44px;
     }
 
     p {
+        text-transform: capitalize;
         font-style: italic;
         opacity: 0.8;
     }

@@ -12,6 +12,8 @@ import Heading from '../Heading/Heading';
 import Product from '../Product/Product';
 import './TrendingProduct.scss';
 
+import Loading from '../Loading/Loading';
+
 function TrendingProduct() {
     const settings = {
         infinite: false,
@@ -64,7 +66,7 @@ function TrendingProduct() {
                         <Product key={value.id} item={value} />
                     ))
                 ) : (
-                    <Product.Loading />
+                    <Loading />
                 )}
             </Slider>
         </div>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Filter.scss';
 
 const filterCategory = [
+    'all category',
     'smartphones',
     'laptops',
     'fragrances',
@@ -55,33 +56,6 @@ function Filter({ onClick = () => {} }) {
                     ))}
                 </div>
             )}
-            {/* <div className='filter_container'>
-                <div className='filter_widget-category'>
-                    <select>
-                        <option>Category</option>
-                        <option value='smartphones'>home-decoration</option>
-                        <option value='laptops'>womens-jewellery</option>
-                        <option value='dress'>dress</option>
-                        <option value='clothe'>clothe</option>
-                    </select>
-                </div>
-                <div>
-                    <div className='filter_widget-details'>
-                        <select>
-                            <option>Sort by</option>
-                            <option value='smartphones'>name - A to Z</option>
-                            <option value='laptops'>name - z to a</option>
-                            <option value='dress'>price - low to high</option>
-                            <option value='clothe'>price - high top low</option>
-                        </select>
-                    </div>
-    
-                    <div className='filter_widget-searchbox'>
-                        <i className='fa-solid fa-magnifying-glass'></i>
-                        <input type='text' placeholder='Search product...' />
-                    </div>
-                </div>
-            </div> */}
         </div>
     );
 }

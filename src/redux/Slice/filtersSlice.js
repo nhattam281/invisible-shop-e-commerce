@@ -9,15 +9,15 @@ const initialState = {
 const filtersSlice = createSlice({
     name: 'filter',
     initialState,
-    reducer: {
+    reducers: {
         searchFilterChange: (state, action) => {
-            //Shop search product
+            state.search = action.payload;
         },
         categoryFilterChange: (state, action) => {
-            //category
+            state.category = action.payload;
         },
         sortbyFilterChange: (state, action) => {
-            //sortby
+            state.sortby = action.payload;
         },
     },
 });
