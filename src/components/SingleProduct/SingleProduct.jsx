@@ -10,7 +10,6 @@ function SingleProduct({ item }) {
 
     const handleAddToCart = (item) => {
         dispatch(cartSlice.actions.addToCart(item));
-        console.log({ item });
     };
 
     const handleSingleProductImgSlider = (index) => {

@@ -104,7 +104,30 @@
 
             border-radius: 8px;
             text-align: center;
-            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+
+            outline: none;
+            border: none;
+            &:hover {
+                cursor: pointer;
+                background-color: #2dd096;
+            }
         }
     }
+}
+
+// responsive
+
+/* Mobile */
+@media (max-width: 46.1875em) {
+    .cart_main {
+        grid-template-columns: 1fr;
+        row-gap: 16px;
+    }
+}
+
+/* Tablet */
+@media (min-width: 46.25em) and (max-width: 63.9375em) {
+    /* 740 - 1023px  */
 }

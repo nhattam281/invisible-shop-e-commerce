@@ -1,7 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import userImage from '../../assets/images/user_318-219673.jpg';
+import {
+    cartItemsSelector,
+    cartTotalQuantitySelector,
+} from '../../redux/selector';
 import './Header.scss';
+
+import cartSlice from '../../redux/Slice/cartSlice';
 
 const menuLinks = [
     {
@@ -19,9 +26,15 @@ const menuLinks = [
 ];
 
 function Header() {
-    const cartQuantity = 1;
+    const cartQuantity = useSelector(cartTotalQuantitySelector);
+    const cart = useSelector(cartItemsSelector);
+    const dispatch = useDispatch();
     const [userLogin, setUserLogin] = useState(false);
     const [showSubMenu, setShowSubMenu] = useState(false);
+
+    useEffect(() => {
+        dispatch(cartSlice.actions.getTotal());
+    }, [cart]);
 
     const toggleSubmenu = () => {
         setShowSubMenu(!showSubMenu);
@@ -60,7 +73,7 @@ function Header() {
                     )}
 
                     <NavLink to='/cart' className='header_button-cart'>
-                        Cart | ({cartQuantity})
+                        Cart | ( {cartQuantity} )
                     </NavLink>
                 </div>
                 <div

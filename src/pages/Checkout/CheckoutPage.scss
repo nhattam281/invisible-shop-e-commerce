@@ -140,7 +140,8 @@
 
     &:hover {
         cursor: pointer;
-        transform: scale(1.01);
+        color: white;
+        background-color: #2bc790;
     }
 }
 
@@ -149,6 +150,13 @@
 /* Mobile */
 @media (max-width: 46.1875em) {
     /* <= 739px */
+    .checkout_main {
+        grid-template-columns: 1fr;
+        row-gap: 16px;
+    }
+    .checkout_nav {
+        display: none;
+    }
 }
 
 /* Tablet */

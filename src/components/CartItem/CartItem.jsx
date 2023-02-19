@@ -1,28 +1,24 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { cartItemsSelector } from '../../redux/selector';
+import cartSlice from '../../redux/Slice/cartSlice';
 import './CartItem.scss';
 
 function CartItem() {
-    const [quantity, setQuantity] = useState(1);
-
     const cart = useSelector(cartItemsSelector);
-    console.log(cart);
 
-    const handleIncrease = () => {
-        setQuantity((prevQty) => {
-            let temQty = prevQty + 1;
-            if (temQty > cart.stock) temQty = cart.stock;
-            return temQty;
-        });
+    const dispath = useDispatch();
+
+    const handleIncrease = (item) => {
+        dispath(cartSlice.actions.addToCart(item));
     };
 
-    const handleDecrease = () => {
-        setQuantity((prevQty) => {
-            let temQty = prevQty - 1;
-            if (temQty < 1) temQty = 1;
-            return temQty;
-        });
+    const handleDecrease = (item) => {
+        dispath(cartSlice.actions.decreaseCartItemQty(item));
+    };
+
+    const handleRemoveItem = (item) => {
+        dispath(cartSlice.actions.removeCartItem(item));
     };
     return (
         <div className='cart_item'>
@@ -41,7 +37,7 @@ function CartItem() {
                 ) : (
                     cart &&
                     cart.map((cartItem) => (
-                        <div className='cart_item-product'>
+                        <div className='cart_item-product' key={cartItem.id}>
                             <div className='cart_item-image'>
                                 <img
                                     src={cartItem.thumbnail}
@@ -57,15 +53,18 @@ function CartItem() {
                             <div className='cart_item-product-quantity'>
                                 <i
                                     className='fa-solid fa-minus'
-                                    onClick={handleDecrease}
+                                    onClick={() => handleDecrease(cartItem)}
                                 />
-                                <p>{quantity}</p>
+                                <p>{cartItem.cartQuantity}</p>
                                 <i
                                     className='fa-solid fa-plus'
-                                    onClick={handleIncrease}
+                                    onClick={() => handleIncrease(cartItem)}
                                 />
                             </div>
-                            <div className='cart_item-product-delete'>
+                            <div
+                                className='cart_item-product-delete'
+                                onClick={() => handleRemoveItem(cartItem)}
+                            >
                                 <i className='fa-solid fa-trash-can'></i>
                             </div>
                         </div>

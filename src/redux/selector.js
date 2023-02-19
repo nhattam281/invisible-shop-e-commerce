@@ -15,6 +15,8 @@ const filterSortBySelector = (state) => state.filters.sortby;
 
 //cart
 const cartItemsSelector = (state) => state.cart.cartItems;
+const cartTotalAmountSelector = (state) => state.cart.cartTotalAmount;
+const cartTotalQuantitySelector = (state) => state.cart.cartTotalQuantity;
 
 const productsRemainingSelector = createSelector(
     productsAllSelector,
@@ -94,4 +96,6 @@ export {
     filterSortBySelector,
     cartItemsSelector,
     productSortBySelector,
+    cartTotalAmountSelector,
+    cartTotalQuantitySelector,
 };

@@ -1,8 +1,15 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import {
+    cartTotalAmountSelector,
+    cartTotalQuantitySelector,
+} from '../../redux/selector';
 import './CheckoutPage.scss';
 
 function CheckoutPage() {
+    const cartTotal = useSelector(cartTotalAmountSelector);
+    const cartQuantity = useSelector(cartTotalQuantitySelector);
     return (
         <div className='checkout'>
             <div className='checkout_banner'>
@@ -34,11 +41,11 @@ function CheckoutPage() {
                     <div className='checkout_total-sub'>
                         <div className='checkout_total-item'>
                             <h3>Total Qty:</h3>
-                            <span>1</span>
+                            <span>{cartQuantity}</span>
                         </div>
                         <div className='checkout_total-item'>
                             <h3>Subtotal:</h3>
-                            <span>$550</span>
+                            <span>${cartTotal}</span>
                         </div>
                         <div className='checkout_total-item'>
                             <h3>Shipping:</h3>
@@ -48,7 +55,7 @@ function CheckoutPage() {
                     <div className='checkout_total-main'>
                         <div className='checkout_total-item'>
                             <h2>Total:</h2>
-                            <span>$550</span>
+                            <span>${cartTotal}</span>
                         </div>
                         <button className='checkout_total-button'>
                             Order Now
