@@ -13,6 +13,9 @@ const filterSearchSelector = (state) => state.filters.search;
 const filterCategorySelector = (state) => state.filters.category;
 const filterSortBySelector = (state) => state.filters.sortby;
 
+//cart
+const cartItemsSelector = (state) => state.cart.cartItems;
+
 const productsRemainingSelector = createSelector(
     productsAllSelector,
     filterSearchSelector,
@@ -89,5 +92,6 @@ export {
     filterSearchSelector,
     filterCategorySelector,
     filterSortBySelector,
+    cartItemsSelector,
     productSortBySelector,
 };

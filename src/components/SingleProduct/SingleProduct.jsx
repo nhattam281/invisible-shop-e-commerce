@@ -1,29 +1,21 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import cartSlice from '../../redux/Slice/cartSlice';
 import './SingleProduct.scss';
 
 function SingleProduct({ item }) {
     const [sliderImage, setSliderImage] = useState(item.images[0]);
-    const [quantity, setQuantity] = useState(1);
+
+    const dispatch = useDispatch();
+
+    const handleAddToCart = (item) => {
+        dispatch(cartSlice.actions.addToCart(item));
+        console.log({ item });
+    };
 
     const handleSingleProductImgSlider = (index) => {
         const slider = item.images[index];
         setSliderImage(slider);
-    };
-
-    const handleIncrease = () => {
-        setQuantity((prevQty) => {
-            let temQty = prevQty + 1;
-            if (temQty > item.stock) temQty = item.stock;
-            return temQty;
-        });
-    };
-
-    const handleDecrease = () => {
-        setQuantity((prevQty) => {
-            let temQty = prevQty - 1;
-            if (temQty < 1) temQty = 1;
-            return temQty;
-        });
     };
 
     const discountPrice = Math.floor(
@@ -82,21 +74,17 @@ function SingleProduct({ item }) {
                     <span>Description:</span>
                     <p>{item.description}</p>
                 </div>
-                <div className='single_product-quantity'>
-                    <span>Quantity:</span>
-                    <div className='single_product-quantity-item'>
-                        <i
-                            className='fa-solid fa-minus'
-                            onClick={handleDecrease}
-                        ></i>
-                        <p>{quantity}</p>
-                        <i
-                            className='fa-solid fa-plus'
-                            onClick={handleIncrease}
-                        ></i>
-                    </div>
+                <div className='single_product-brand'>
+                    <span>Brand:</span>
+                    <p>{item.brand}</p>
                 </div>
-                <button>Add to cart</button>
+                <div className='single_product-category'>
+                    <span>Category:</span>
+                    <p>{item.category}</p>
+                </div>
+                <button onClick={() => handleAddToCart(item)}>
+                    Add to cart
+                </button>
             </div>
         </div>
     );
