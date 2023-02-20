@@ -73,7 +73,7 @@ function Header() {
                     )}
 
                     <NavLink to='/cart' className='header_button-cart'>
-                        Cart | ( {cartQuantity} )
+                        Cart | ({cartQuantity})
                     </NavLink>
                 </div>
                 <div

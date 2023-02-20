@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Filter from '../../components/Filter/Filter';
 import Loading from '../../components/Loading/Loading';
@@ -58,6 +58,12 @@ function ShopPage() {
                     />
                 </div>
             </div>
+
+            {products.length === 0 && (
+                <div className='shop_notfound'>
+                    <h1>No product found</h1>
+                </div>
+            )}
 
             <div className='shop_product'>
                 {productsStatus === STATUS.SUCCEEDED

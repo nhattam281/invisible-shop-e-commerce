@@ -61,13 +61,14 @@ function TrendingProduct() {
         <div className='trending_prod'>
             <Heading title={'Trending products'} />
             <Slider {...settings} className='trending_product-slider'>
-                {productsStatus === STATUS.SUCCEEDED ? (
-                    products.map((value) => (
-                        <Product key={value.id} item={value} />
-                    ))
-                ) : (
-                    <Loading />
-                )}
+                {productsStatus === STATUS.SUCCEEDED
+                    ? products.map((value) => (
+                          <Product key={value.id} item={value} />
+                      ))
+                    : // <Loading />
+                      Array(4)
+                          .fill(0)
+                          .map((_, index) => <Loading key={index} />)}
             </Slider>
         </div>
     );

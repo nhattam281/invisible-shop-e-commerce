@@ -1,0 +1,56 @@
+.error {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    row-gap: 20px;
+
+    background-image: linear-gradient(125deg, #6a89cc, #b8e994);
+
+    font-family: 'montserrat', sans-serif;
+    overflow: hidden;
+    text-align: center;
+
+    h1 {
+        font-size: 160px;
+        font-weight: 900;
+        letter-spacing: 20px;
+
+        color: transparent;
+        background: url(../../assets/images/banner1.jpg) center no-repeat;
+        background-clip: text;
+    }
+
+    p {
+        letter-spacing: 1px;
+    }
+}
+
+.error_button {
+    text-decoration: none;
+    padding: 16px 40px;
+
+    color: white;
+    background-color: #2ecc71;
+
+    border-radius: 25px;
+    text-transform: uppercase;
+
+    &:hover {
+        background-color: #27ae60;
+    }
+}
+
+/* Mobile */
+@media (max-width: 46.1875em) {
+    .error {
+        h1 {
+            font-size: 140px;
+            letter-spacing: 10px;
+        }
+    }
+}

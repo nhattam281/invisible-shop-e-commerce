@@ -29,7 +29,7 @@ function LoginPage() {
                         Login
                     </NavLink>
                     <NavLink to='/signup' className='login_button'>
-                        SignUp
+                        New User?
                     </NavLink>
 
                     <div className='login_forgot-password'>
