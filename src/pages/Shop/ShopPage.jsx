@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Filter from '../../components/Filter/Filter';
 import Loading from '../../components/Loading/Loading';
@@ -12,6 +12,9 @@ import filtersSlice from '../../redux/Slice/filtersSlice';
 import { fetchProducts } from '../../redux/Slice/productSlice';
 import { STATUS } from '../../utils/status';
 import './ShopPage.scss';
+
+//pagination
+import ReactPaginate from 'react-paginate';
 
 function ShopPage() {
     const dispatch = useDispatch();
@@ -39,6 +42,20 @@ function ShopPage() {
     const handleSearchChange = (e) => {
         dispatch(filtersSlice.actions.searchFilterChange(e.target.value));
     };
+
+    //pagination
+    const [itemOffset, setItemOffset] = useState(0);
+    const itemsPerPage = 8;
+
+    const endOffset = itemOffset + itemsPerPage;
+    const currentItems = products.slice(itemOffset, endOffset);
+    const pageCount = Math.ceil(products.length / itemsPerPage);
+
+    const handlePageClick = (event) => {
+        const newOffset = (event.selected * itemsPerPage) % products.length;
+        setItemOffset(newOffset);
+    };
+
     return (
         <div className='shop'>
             <div className='shop_banner'>
@@ -67,11 +84,26 @@ function ShopPage() {
 
             <div className='shop_product'>
                 {productsStatus === STATUS.SUCCEEDED
-                    ? products.map((value) => (
+                    ? currentItems.map((value) => (
                           <Product key={value.id} item={value} />
                       ))
-                    : products.map((value) => <Loading key={value.id} />)}
+                    : currentItems.map((value) => <Loading key={value.id} />)}
             </div>
+
+            <ReactPaginate
+                breakLabel='...'
+                nextLabel='>'
+                onPageChange={handlePageClick}
+                pageRangeDisplayed={5}
+                pageCount={pageCount}
+                previousLabel='<'
+                renderOnZeroPageCount={null}
+                containerClassName='shop_pagination'
+                pageLinkClassName='shop_pagination_page-num'
+                previousLinkClassName='shop_pagination_page-num'
+                nextLinkClassName='shop_pagination_page-num'
+                activeLinkClassName='shop_pagination-active'
+            />
         </div>
     );
 }
