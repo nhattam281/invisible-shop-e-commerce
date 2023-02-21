@@ -106,6 +106,8 @@
     cursor: pointer;
     border-radius: 3px;
 
+    color: var(--main-color);
+
     &:hover {
         color: white;
         background-color: var(--main-color);
@@ -119,6 +121,17 @@
 
     color: white;
     background-color: var(--main-color);
+}
+
+.shop_pagination-prev,
+.shop_pagination-next {
+    border: 1px solid var(--main-color);
+    padding-left: 26px;
+    padding-right: 26px;
+
+    outline: none;
+
+    color: var(--main-color);
 }
 
 // responsive

@@ -72,7 +72,14 @@ function Header() {
                         </NavLink>
                     )}
 
-                    <NavLink to='/cart' className='header_button-cart'>
+                    <NavLink
+                        to='/cart'
+                        className={`header_button-cart ${
+                            cartQuantity > 0
+                                ? 'header_button-cart-haveitems'
+                                : ''
+                        }`}
+                    >
                         Cart | ({cartQuantity})
                     </NavLink>
                 </div>

@@ -133,6 +133,33 @@
     }
 }
 
+//cart have items
+.header_button {
+    &-cart-haveitems {
+        background: linear-gradient(
+            90deg,
+            #ff0000,
+            #ffff00,
+            #ff00f3,
+            #0033ff,
+            #ff00c4,
+            #ff0000
+        );
+        background-size: 400%;
+        animation: animate 10s linear infinite;
+    }
+}
+
+@keyframes animate {
+    0% {
+        background-position: 0%;
+    }
+    100% {
+        background-position: 400%;
+    }
+}
+//cart have items
+
 .header_show-submenu-button {
     display: flex;
     justify-content: flex-end;

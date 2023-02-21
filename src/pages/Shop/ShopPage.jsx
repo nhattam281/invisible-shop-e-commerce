@@ -100,8 +100,8 @@ function ShopPage() {
                 renderOnZeroPageCount={null}
                 containerClassName='shop_pagination'
                 pageLinkClassName='shop_pagination_page-num'
-                previousLinkClassName='shop_pagination_page-num'
-                nextLinkClassName='shop_pagination_page-num'
+                previousLinkClassName='shop_pagination_page-num shop_pagination-prev'
+                nextLinkClassName='shop_pagination_page-num shop_pagination-next'
                 activeLinkClassName='shop_pagination-active'
             />
         </div>
