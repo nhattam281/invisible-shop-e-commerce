@@ -6,6 +6,7 @@ import { productSelector } from '../../redux/selector';
 import { getProductByID } from '../../redux/Slice/productSlice';
 
 import Loading from '../../components/Loading/Loading';
+import SimilarProduct from '../../components/SimilarProduct/SimilarProduct';
 import { productStatusSelector } from '../../redux/selector';
 import { STATUS } from '../../utils/status';
 import './ProductDetailPage.scss';
@@ -33,6 +34,7 @@ function ProductDetailPage() {
             ) : (
                 <Loading />
             )}
+            {product && <SimilarProduct product={product} />}
         </div>
     );
 }

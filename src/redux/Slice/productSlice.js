@@ -37,6 +37,18 @@ const productsSlice = createSlice({
             })
             .addCase(getProductByID.rejected, (state, action) => {
                 state.productStatus = STATUS.FAILED;
+            })
+
+            // get product by category
+            .addCase(getProducsOfCategory.pending, (state, action) => {
+                state.productsStatus = STATUS.LOADING;
+            })
+            .addCase(getProducsOfCategory.fulfilled, (state, action) => {
+                state.productsStatus = STATUS.SUCCEEDED;
+                state.products = action.payload;
+            })
+            .addCase(getProducsOfCategory.rejected, (state, action) => {
+                state.productsStatus = STATUS.FAILED;
             });
     },
 });
@@ -59,9 +71,9 @@ const getProductByID = createAsyncThunk(
 const getProducsOfCategory = createAsyncThunk(
     'products/getProductsOfCategory',
     async (category) => {
-        const res = await fetch(`${BASE_URL}/products/${category}`);
+        const res = await fetch(`${BASE_URL}products/category/${category}`);
         const data = await res.json();
-        console.log(data);
+        console.log({ data });
         return data;
     }
 );
