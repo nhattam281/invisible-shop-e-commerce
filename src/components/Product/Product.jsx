@@ -15,6 +15,7 @@ function Product({ item }) {
 
     const handleNavigate = (item) => {
         navigate(`/productdetail/${item.id}`);
+        window.scroll(0, 0);
     };
 
     return (
@@ -36,12 +37,12 @@ function Product({ item }) {
                             onClick={() => handleAddToCart(item)}
                         ></i>
                     </div>
-                    <NavLink
-                        to={`/productdetail/${item.id}`}
+                    <button
                         className='product_button'
+                        onClick={() => handleNavigate(item)}
                     >
                         Detail
-                    </NavLink>
+                    </button>
                 </div>
             </div>
         </div>

@@ -17,7 +17,7 @@ function ProductDetailPage() {
 
     useEffect(() => {
         dispatch(getProductByID(productID));
-    }, []);
+    }, [productID]);
 
     const product = useSelector(productSelector);
     const productStatus = useSelector(productStatusSelector);
