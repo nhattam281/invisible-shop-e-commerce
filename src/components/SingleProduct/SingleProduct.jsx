@@ -4,6 +4,9 @@ import cartSlice from '../../redux/Slice/cartSlice';
 import './SingleProduct.scss';
 
 function SingleProduct({ item }) {
+    //test rating
+    const rating = 3;
+
     const [sliderImage, setSliderImage] = useState(item.images[0]);
 
     const dispatch = useDispatch();
@@ -49,11 +52,15 @@ function SingleProduct({ item }) {
                 <h1>{item.title}</h1>
                 <div className='single_product-vote'>
                     <div>
-                        <i className='fa-solid fa-star' />
-                        <i className='fa-solid fa-star' />
-                        <i className='fa-solid fa-star' />
-                        <i className='fa-solid fa-star' />
-                        <i className='fa-regular fa-star' />
+                        {Array(5)
+                            .fill(0)
+                            .map((_, index) => {
+                                if (index >= rating) {
+                                    return <i className='fa-regular fa-star' />;
+                                } else {
+                                    return <i className='fa-solid fa-star' />;
+                                }
+                            })}
                     </div>
                     <span>|</span>
                     <p>(4 reviews)</p>

@@ -25,11 +25,15 @@ const productsRemainingSelector = createSelector(
     (productList, searchText, categoryFilter) => {
         return productList.filter((product) => {
             if (categoryFilter === 'all category') {
-                return product.title.includes(searchText);
+                return product.title
+                    .toLowerCase()
+                    .includes(searchText.toLowerCase());
             }
 
             return (
-                product.title.includes(searchText) &&
+                product.title
+                    .toLowerCase()
+                    .includes(searchText.toLowerCase()) &&
                 product.category.includes(categoryFilter)
             );
         });

@@ -6,6 +6,7 @@ import { productSelector } from '../../redux/selector';
 import { getProductByID } from '../../redux/Slice/productSlice';
 
 import Loading from '../../components/Loading/Loading';
+// import ProductReview from '../../components/ProductReview/ProductReview';
 import SimilarProduct from '../../components/SimilarProduct/SimilarProduct';
 import { productStatusSelector } from '../../redux/selector';
 import { STATUS } from '../../utils/status';
@@ -34,6 +35,11 @@ function ProductDetailPage() {
             ) : (
                 <Loading />
             )}
+
+            {/* product review test */}
+            {/* <ProductReview /> */}
+            {/* product review test */}
+
             {product && <SimilarProduct product={product} />}
         </div>
     );

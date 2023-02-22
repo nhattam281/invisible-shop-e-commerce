@@ -1,0 +1,26 @@
+.review {
+    padding: 50px 0;
+    width: 100%;
+}
+
+// responsive
+
+/* Mobile */
+@media (max-width: 46.1875em) {
+    /* <= 739px */
+}
+
+/* Tablet */
+@media (min-width: 46.25em) and (max-width: 63.9375em) {
+    /* 740 - 1023px  */
+}
+
+/* Tablet & Mobile */
+@media (max-width: 63.9375em) {
+    /*<= 1023px */
+}
+
+/* PC */
+@media (min-width: 64em) {
+    /* >=1024px */
+}
