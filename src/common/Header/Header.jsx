@@ -40,11 +40,18 @@ function Header() {
         setShowSubMenu(!showSubMenu);
     };
 
+    const handleNavigate = () => {
+        window.scroll(0, 0);
+    };
     return (
         <div className='header'>
             <div className='header_container'>
                 <div className='header_logo'>
-                    <NavLink to='/' className='header_logo-icon'>
+                    <NavLink
+                        to='/'
+                        className='header_logo-icon'
+                        onClick={handleNavigate}
+                    >
                         inviShop.
                     </NavLink>
                 </div>
@@ -54,6 +61,7 @@ function Header() {
                             to={link.path}
                             key={link.title}
                             className='header_menu-item'
+                            onClick={handleNavigate}
                         >
                             {link.title}
                         </NavLink>
@@ -79,6 +87,7 @@ function Header() {
                                 ? 'header_button-cart-haveitems'
                                 : ''
                         }`}
+                        onClick={handleNavigate}
                     >
                         Cart | ({cartQuantity})
                     </NavLink>
