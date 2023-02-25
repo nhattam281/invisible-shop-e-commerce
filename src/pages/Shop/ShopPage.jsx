@@ -54,6 +54,7 @@ function ShopPage() {
     const handlePageClick = (event) => {
         const newOffset = (event.selected * itemsPerPage) % products.length;
         setItemOffset(newOffset);
+        window.scroll(0, 0);
     };
 
     return (
