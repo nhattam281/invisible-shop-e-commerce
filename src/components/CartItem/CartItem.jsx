@@ -6,6 +6,7 @@ import './CartItem.scss';
 
 function CartItem() {
     const cart = useSelector(cartItemsSelector);
+    console.log({ cart });
 
     const dispath = useDispatch();
 

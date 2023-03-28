@@ -5,7 +5,7 @@ import './SingleProduct.scss';
 
 function SingleProduct({ item }) {
     //test rating
-    const rating = 3;
+    const rating = item.rating;
 
     const [sliderImage, setSliderImage] = useState(item.images[0]);
 
@@ -55,13 +55,33 @@ function SingleProduct({ item }) {
                         {Array(5)
                             .fill(0)
                             .map((_, index) => {
-                                if (index >= rating) {
-                                    return <i className='fa-regular fa-star' />;
+                                let odd = index + 0.5;
+                                if (rating >= index + 1) {
+                                    return (
+                                        <i
+                                            key={index}
+                                            className='fa-solid fa-star'
+                                        />
+                                    );
                                 } else {
-                                    return <i className='fa-solid fa-star' />;
+                                    if (rating >= odd) {
+                                        return (
+                                            <i
+                                                key={index}
+                                                className='fa-solid fa-star-half-stroke'
+                                            />
+                                        );
+                                    }
+                                    return (
+                                        <i
+                                            key={index}
+                                            className='fa-regular fa-star'
+                                        />
+                                    );
                                 }
                             })}
                     </div>
+                    <span>{item.rating}</span>
                     <span>|</span>
                     <p>(4 reviews)</p>
                 </div>

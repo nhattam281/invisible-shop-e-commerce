@@ -6,7 +6,7 @@ import { productSelector } from '../../redux/selector';
 import { getProductByID } from '../../redux/Slice/productSlice';
 
 import Loading from '../../components/Loading/Loading';
-// import ProductReview from '../../components/ProductReview/ProductReview';
+import ProductReview from '../../components/ProductReview/ProductReview';
 import SimilarProduct from '../../components/SimilarProduct/SimilarProduct';
 import { productStatusSelector } from '../../redux/selector';
 import { STATUS } from '../../utils/status';
@@ -18,6 +18,7 @@ function ProductDetailPage() {
 
     useEffect(() => {
         dispatch(getProductByID(productID));
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [productID]);
 
     const product = useSelector(productSelector);
@@ -37,7 +38,7 @@ function ProductDetailPage() {
             )}
 
             {/* product review test */}
-            {/* <ProductReview /> */}
+            <ProductReview />
             {/* product review test */}
 
             {product && <SimilarProduct product={product} />}

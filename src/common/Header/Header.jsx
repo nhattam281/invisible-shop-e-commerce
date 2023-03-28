@@ -38,6 +38,7 @@ function Header() {
 
     useEffect(() => {
         dispatch(cartSlice.actions.getTotal());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [cart]);
 
     const toggleSubmenu = () => {

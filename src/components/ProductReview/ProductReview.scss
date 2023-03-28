@@ -1,6 +1,57 @@
 .review {
     padding: 50px 0;
     width: 100%;
+
+    h1 {
+        color: var(--main-color);
+    }
+}
+
+.review_container {
+    padding: 40px 60px 0;
+}
+
+.review_rating {
+    // color: #fdd836;
+    color: #e4e5e9;
+
+    font-size: 45px;
+    margin-bottom: 20px;
+
+    input[type='radio'] {
+        display: none;
+    }
+}
+
+.review_rating .checked {
+    color: #fdd836;
+}
+
+.review_message {
+    width: 100%;
+    margin-bottom: 20px;
+
+    textarea {
+        width: 100%;
+        padding: 10px;
+        border: 2px solid #333;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+    textarea:focus {
+        outline: none;
+    }
+}
+
+.review_button {
+    padding: 16px 50px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    background-color: var(--main-color);
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
 }
 
 // responsive
