@@ -1,9 +1,25 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useState } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
 import bgSVG from '../../assets/svg/bg.svg';
 import './SignUpPage.scss';
 
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../../firebase';
+
 function SignUpPage() {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
+    const navigate = useNavigate();
+
+    const handleSignUp = async () => {
+        try {
+            await createUserWithEmailAndPassword(auth, username, password);
+            navigate('/login');
+        } catch (err) {
+            console.error();
+        }
+    };
     return (
         <div className='signup'>
             <div className='signup_container'>
@@ -17,11 +33,19 @@ function SignUpPage() {
                 <div className='signup_container-form'>
                     <h1>signup</h1>
                     <div className='signup_input'>
-                        <input type='text' required />
-                        <span>User Name</span>
+                        <input
+                            type='text'
+                            onChange={(e) => setUsername(e.target.value)}
+                            required
+                        />
+                        <span>User Email</span>
                     </div>
                     <div className='signup_input'>
-                        <input type='password' required />
+                        <input
+                            type='password'
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                        />
                         <span>Password</span>
                     </div>
                     <div className='signup_input'>
@@ -29,7 +53,11 @@ function SignUpPage() {
                         <span>Confirm</span>
                     </div>
 
-                    <NavLink to='/login' className='signup_button'>
+                    <NavLink
+                        to='/login'
+                        className='signup_button'
+                        onClick={handleSignUp}
+                    >
                         SignUp
                     </NavLink>
 

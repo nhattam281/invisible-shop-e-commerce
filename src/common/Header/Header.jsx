@@ -1,7 +1,10 @@
+import { onAuthStateChanged, signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
+
 import userImage from '../../assets/images/user_318-219673.jpg';
+import { auth } from '../../firebase';
 import {
     cartItemsSelector,
     cartTotalQuantitySelector,
@@ -38,8 +41,19 @@ function Header() {
 
     useEffect(() => {
         dispatch(cartSlice.actions.getTotal());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [cart]);
+
+    //authentication
+    useEffect(() => {
+        onAuthStateChanged(auth, (user) => {
+            if (user?.email) {
+                setUserLogin(true);
+            } else {
+                setUserLogin(false);
+            }
+        });
+    }, []);
 
     const toggleSubmenu = () => {
         setShowSubMenu(!showSubMenu);
@@ -57,9 +71,15 @@ function Header() {
     };
 
     const handleNavigateLogout = () => {
-        navigate('/login');
-        setShowUserDropdown(!showUserDropdown);
-        window.scroll(0, 0);
+        signOut(auth)
+            .then(() => {
+                setShowUserDropdown(!showUserDropdown);
+                window.scroll(0, 0);
+                navigate('/login');
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     };
 
     const handleNavigateOrders = () => {

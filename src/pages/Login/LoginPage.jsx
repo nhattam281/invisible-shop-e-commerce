@@ -1,9 +1,26 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import React, { useState } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
+
 import bgSVG from '../../assets/svg/bg.svg';
+import { auth } from '../../firebase';
 import './LoginPage.scss';
 
 function LoginPage() {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
+    const navigate = useNavigate();
+
+    const handleLogin = async () => {
+        try {
+            await signInWithEmailAndPassword(auth, username, password);
+            navigate('/');
+        } catch (err) {
+            console.error();
+        }
+    };
+
     return (
         <div className='login'>
             <div className='login_container'>
@@ -17,15 +34,27 @@ function LoginPage() {
                 <div className='login_container-form'>
                     <h1>Login</h1>
                     <div className='login_input'>
-                        <input type='text' required />
-                        <span>User Name</span>
+                        <input
+                            type='text'
+                            onChange={(e) => setUsername(e.target.value)}
+                            required
+                        />
+                        <span>User Email</span>
                     </div>
                     <div className='login_input'>
-                        <input type='password' required />
+                        <input
+                            type='password'
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                        />
                         <span>Password</span>
                     </div>
 
-                    <NavLink to='/' className='login_button'>
+                    <NavLink
+                        to='/'
+                        className='login_button'
+                        onClick={handleLogin}
+                    >
                         Login
                     </NavLink>
                     <NavLink to='/signup' className='login_button'>
