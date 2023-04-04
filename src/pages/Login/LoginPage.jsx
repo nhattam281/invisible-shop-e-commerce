@@ -9,15 +9,18 @@ import './LoginPage.scss';
 function LoginPage() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
 
     const navigate = useNavigate();
 
-    const handleLogin = async () => {
+    const handleLogin = async (e) => {
+        e.preventDefault();
         try {
             await signInWithEmailAndPassword(auth, username, password);
             navigate('/');
         } catch (err) {
             console.error();
+            setError('Email or password incorrect!');
         }
     };
 
@@ -35,7 +38,7 @@ function LoginPage() {
                     <h1>Login</h1>
                     <div className='login_input'>
                         <input
-                            type='text'
+                            type='emails'
                             onChange={(e) => setUsername(e.target.value)}
                             required
                         />
@@ -49,7 +52,7 @@ function LoginPage() {
                         />
                         <span>Password</span>
                     </div>
-
+                    <span className='login_error'>{error}</span>
                     <NavLink
                         to='/'
                         className='login_button'

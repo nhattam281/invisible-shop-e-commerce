@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import bgSVG from '../../assets/svg/bg.svg';
 import './SignUpPage.scss';
@@ -9,17 +9,29 @@ import { auth } from '../../firebase';
 function SignUpPage() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [comfirmPassword, setComfirmPassword] = useState('');
+    const [error, setError] = useState('');
 
     const navigate = useNavigate();
 
-    const handleSignUp = async () => {
+    const handleSignUp = async (e) => {
+        e.preventDefault();
         try {
             await createUserWithEmailAndPassword(auth, username, password);
+            alert('Sign up Successfully!');
             navigate('/login');
         } catch (err) {
             console.error();
         }
     };
+
+    useEffect(() => {
+        if (password !== comfirmPassword)
+            setError('Confirm password incorrect');
+        else setError('');
+        console.log('asda');
+    }, [password, comfirmPassword]);
+
     return (
         <div className='signup'>
             <div className='signup_container'>
@@ -43,15 +55,23 @@ function SignUpPage() {
                     <div className='signup_input'>
                         <input
                             type='password'
+                            value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             required
                         />
                         <span>Password</span>
                     </div>
                     <div className='signup_input'>
-                        <input type='password' required />
+                        <input
+                            type='password'
+                            required
+                            value={comfirmPassword}
+                            onChange={(e) => setComfirmPassword(e.target.value)}
+                        />
                         <span>Confirm</span>
                     </div>
+
+                    <span className='signup_error'>{error}</span>
 
                     <NavLink
                         to='/login'

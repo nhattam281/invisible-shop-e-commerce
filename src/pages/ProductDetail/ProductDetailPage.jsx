@@ -38,7 +38,7 @@ function ProductDetailPage() {
             )}
 
             {/* product review test */}
-            <ProductReview />
+            {/* <ProductReview /> */}
             {/* product review test */}
 
             {product && <SimilarProduct product={product} />}
